@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Todo {
+  id Int @id @default(autoincrement())
+  nome String
+  descricao String?
+  categoria String? @default("Outros")
+  foiFeito Boolean @default(false)
+  idUsuario String
+  usuario Usuario @relation(fields: [idUsuario], references: [id])
+}
+
+model Usuario {
+  id String @default(uuid()) @unique
+  nome String
+  senha String
+  email String
+  telefone Int
+  criadoQuando DateTime? @default(now())
+  atualizadoQuando DateTime? @default(now())
+  todos Todo[]
+}

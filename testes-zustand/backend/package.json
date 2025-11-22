@@ -1,0 +1,22 @@
+{
+  "name": "backend",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun run src/index.ts",
+    "test": "bun run src/index.ts && bunx prisma studio"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@prisma/client": "^7.0.0",
+    "@tinyhttp/app": "^3.0.1",
+    "milliparsec": "^5.1.0",
+    "prisma": "^7.0.0"
+  }
+}
